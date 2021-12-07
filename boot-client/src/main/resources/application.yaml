@@ -1,0 +1,9 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: rpc-server
+
+netty:
+  server-port: 9000

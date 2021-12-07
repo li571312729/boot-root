@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.baili</groupId>
+    <artifactId>boot-root</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>netty-server</module>
+        <module>boot-test</module>
+        <module>hello-starter</module>
+        <module>boot-common</module>
+        <module>boot-client</module>
+        <module>netty-client</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <dozer.version>6.5.0</dozer.version>
+        <guava.version>29.0-jre</guava.version>
+        <okhttp3.version>3.8.1</okhttp3.version>
+        <hutool-core.version>5.4.7</hutool-core.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <commons-lang3.version>3.12.0</commons-lang3.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
+        <transmittable-thread-local.version>2.12.1</transmittable-thread-local.version>
+        <forest.version>1.5.11</forest.version>
+        <jjwt.version>0.9.0</jjwt.version>
+
+        <dingtalk-sdk.version>1.0.1</dingtalk-sdk.version>
+
+        <netty.version>4.1.58.Final</netty.version>
+
+        <lombok.version>1.18.12</lombok.version>
+        <slf4j-api.version>1.7.7</slf4j-api.version>
+        <logback.version>1.2.3</logback.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
+        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
+
+        <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Maven -->
+        <maven.compiler.plugin.version>3.6.1</maven.compiler.plugin.version>
+        <maven.javadoc.plugin.version>3.0.0</maven.javadoc.plugin.version>
+        <maven.source.plugin.version>3.0.1</maven.source.plugin.version>
+        <maven.jar.plugin.version>3.0.2</maven.jar.plugin.version>
+        <license-maven-plugin.version>3.0</license-maven-plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- boot common -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>boot-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- hello starter -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>hello-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- netty-server -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>netty-server</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- netty-client -->
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>netty-client</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>logging-interceptor</artifactId>
+                <version>${okhttp3.version}</version>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dozermapper</groupId>
+                <artifactId>dozer-core</artifactId>
+                <version>${dozer.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.aliyun</groupId>
+                <artifactId>alibaba-dingtalk-service-sdk</artifactId>
+                <version>${dingtalk-sdk.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable-thread-local.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.dtflys.forest</groupId>
+                <artifactId>forest-spring-boot-starter</artifactId>
+                <version>${forest.version}</version>
+            </dependency>
+
+            <!-- Netty4 -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <!-- lombok简化java代码 如果没有安装，先安装这个插件-->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+
+</project>
