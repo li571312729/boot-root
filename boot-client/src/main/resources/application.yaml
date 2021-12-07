@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: rpc-server
+    name: rpc-cliet
 
 netty:
   server-port: 9000
